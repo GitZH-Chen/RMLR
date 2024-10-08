@@ -14,7 +14,7 @@ If you find this project helpful, please consider citing us as follows:
 @inproceedings{chen2024rmlr,
   title={{RMLR}: Extending Multinomial Logistic Regression into General Geometries},
   author={Ziheng Chen and Yue Song and Rui Wang and Xiaojun Wu and Nicu Sebe},
-  booktitle={The Twelfth International Conference on Learning Representations},
+  booktitle={NeurIPS},
   year={2024}
 }
 ```
