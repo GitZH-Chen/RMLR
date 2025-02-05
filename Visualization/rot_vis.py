@@ -22,11 +22,6 @@ ax.w_zaxis.set_pane_color(pane_color)
 grid_color = (0.98, 0.98, 0.98, 0.1)
 ax.grid(True, color=grid_color)
 
-
-
-# Set title (optional)
-# ax.set_title('Visualization of a Hyperplane in SO(3)', fontsize=20)
-
 # Draw the boundary of the ball
 n = 40
 X, Y, Z = np.meshgrid(np.linspace(-np.pi, np.pi, n), np.linspace(-np.pi, np.pi, n), np.linspace(-np.pi, np.pi, n))
@@ -37,8 +32,6 @@ ax.scatter(sphere_x, sphere_y, sphere_z, s=0.1, c='grey', marker='.',alpha=0.1)
 
 # Plot SO(3) points
 ax.scatter(axi_angle_python[0][0, :], axi_angle_python[0][1, :], axi_angle_python[0][2, :], s=dotsize, c='g', marker='.')
-# ax.scatter(axi_angle_python[1][0, :], axi_angle_python[1][1, :], axi_angle_python[1][2, :], s=dotsize, c='g', marker='.')
-# ax.scatter(axi_angle_python[2][0, :], axi_angle_python[2][1, :], axi_angle_python[2][2, :], s=dotsize, c='g', marker='.')
 
 # Set labels with LaTeX and larger fontsize
 fontsize = 16
