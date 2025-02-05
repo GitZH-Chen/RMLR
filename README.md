@@ -69,7 +69,7 @@ conda env create --file environment.yaml
 
 **Note** that the [hydra](https://hydra.cc/) package is used to manage configuration files.
 
-## Demo
+## Demos
  Demos of typical use can be found in `demo_spd.py`:
 ```python
 import torch as th
