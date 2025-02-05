@@ -105,7 +105,7 @@ The preprocessed SPD from the HDM05 dataset can be found [[here](https://www.dro
 Please download the datasets and put them in your folder.
 If necessary, change the `path` in `conf/RiemNets/dataset/HDM05_SPD.yaml`,
 
-**Note:** Other datasets for the SPD networks can be found in our CVPR24 paper.
+**Note:** Other datasets for SPD networks can be found in our CVPR24 paper.
 
 ### Running experiments
 
