@@ -102,7 +102,6 @@ def train_per_epoch(model,args):
     epoch_loss, epoch_acc = [], []
     model.train()
     for local_batch, local_labels in args.DataLoader._train_generator:
-        i = i + 1
         local_batch = local_batch.to(th.double).to(args.device)
         local_labels = local_labels.to(args.device)
         args.opti.zero_grad()
