@@ -1,5 +1,5 @@
 """
-    Official Implementation of the rotation matrices presented in
+    Official Implementation of the rotation matrices used in
     @inproceedings{chen2024rmlr,
         title={{RMLR}: Extending Multinomial Logistic Regression into General Geometries},
         author={Ziheng Chen and Yue Song and Rui Wang and Xiaojun Wu and Nicu Sebe},
