@@ -1,0 +1,14 @@
+model:
+    model_type: SPDNet
+    architecture: [93,70,50,30]
+
+classifier:
+    classifier: LogEigMLR #LogEigMLR, SPDMLR
+    metric: LCM #AIM,LEM,LCM,BWM,PEM
+    power: 1. #for BWM the default is 0.5 (no deformation)
+    alpha: 1.0
+    beta: 0.0
+optimizer:
+    optimizer_mode: AMSGRAD #AMSGRAD,SGD,ADAM
+    lr: 1e-2
+    weight_decay: 0
