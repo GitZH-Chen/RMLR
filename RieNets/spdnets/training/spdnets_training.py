@@ -27,7 +27,7 @@ def training(cfg,args):
 
     # set dataset, model and optimizer
     args.DataLoader = get_dataset_settings(args)
-    model = SPDNet[args.model_type](args)
+    model = SPDNet(args)
     model = model.double()
     model.to(args.device)
     loss_fn = nn.CrossEntropyLoss()
