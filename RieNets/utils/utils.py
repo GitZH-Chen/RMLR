@@ -97,19 +97,10 @@ def parse_cfg(args, cfg: DictConfig):
     args.modelname = get_model_name(args)
     return args
 
-def cal_acc(pred, labels):
-    pred = th.nn.functional.softmax(pred, 1)
-    _, pred = th.max(pred, 1)
-    train_correct = (pred == (labels)).sum().float()
-    acc = train_correct / labels.shape[0]
-    return acc
-
 def train_per_epoch(model,args):
     start = time.time()
     epoch_loss, epoch_acc = [], []
     model.train()
-    train_accuracy=0
-    i = -1
     for local_batch, local_labels in args.DataLoader._train_generator:
         i = i + 1
         local_batch = local_batch.to(th.double).to(args.device)
@@ -118,7 +109,6 @@ def train_per_epoch(model,args):
         out = model(local_batch)
         l = args.loss_fn(out, local_labels)
         acc, loss = (out.argmax(1) == local_labels).cpu().numpy().sum() / out.shape[0], l.cpu().data.numpy()
-        train_accuracy += cal_acc(out, local_labels)
         epoch_loss.append(loss)
         epoch_acc.append(acc)
         l.backward()
