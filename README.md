@@ -118,5 +118,9 @@ bash exp_spdnets.sh
 
 **Note:** You also can change the `hdm05_path` in `exp_spdnets.sh`, which will override the hydra config.
 
+### Visualization
+
+The pyrhon code for visualization can be found in `rot_vis.py` and `spd_vis.py`, corresponding to Figs. 2-3.
+
 
 
