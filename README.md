@@ -120,7 +120,7 @@ bash exp_spdnets.sh
 
 ### Visualization
 
-The pyrhon code for visualization can be found in `rot_vis.py` and `spd_vis.py`, corresponding to Figs. 2-3.
+The pyrhon code for visualization can be found in `spd_vis.py` and `rot_vis.py`, corresponding to Figs. 2-3.
 
 
 
