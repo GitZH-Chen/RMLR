@@ -90,11 +90,6 @@ model = SPDRMLR(n=n, c=c, metric='LEM')
 
 # Forward computation
 output = model(X)
-
-# Print results
-print("Input X shape:", X.shape)
-print("Output shape:", output.shape)
-print("Output:", output)
 ```
 
 ## Experiments
