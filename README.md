@@ -103,8 +103,7 @@ The implementation of SPD MLR is based on our previous work:
 The preprocessed SPD from the HDM05 dataset can be found [[here](https://www.dropbox.com/scl/fi/x2ouxjwqj3zrb1idgkg2g/HDM05.zip?rlkey=4f90ktgzfz28x3i2i4ylu6dvu&st=oisp66vz&dl=0)].
 
 Please download the datasets and put them in your folder.
-If necessary, change the `path` accordingly in
-`conf/RiemNets/dataset/HDM05_SO3.yaml` and `conf/RiemNets/dataset/HDM05_SPD.yaml`,
+If necessary, change the `path` in `conf/RiemNets/dataset/HDM05_SPD.yaml`,
 
 **Note:** Other datasets for the SPD networks can be found in our CVPR24 paper.
 
