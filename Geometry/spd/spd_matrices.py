@@ -10,7 +10,7 @@
 import torch as th
 import torch.nn as nn
 
-from RieNets.spdnets.functionals import sym_powm,sym_logm,sym_invm,sym_sqrtm,sym_Glogm
+from .sym_functionals import sym_powm,sym_logm,sym_invm,sym_sqrtm,sym_Glogm
 from Geometry.spd.functional import inner_product,trace,tril_half_diag,Lyapunov_eig_solver
 
 tril_param_metric = {'AIM','PEM'}
