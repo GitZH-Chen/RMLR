@@ -215,17 +215,24 @@ class SPDPowerCholeskyMetric(SPDMatrices):
         """
         RMLR based on margin distance, generating A by parallel transportation
         Inputs:
-        S: [...,n,n] SPD
-        P: [class,n,n] SPD matrices
-        A: [class,n,n] symmetric matrices
+        S: [bs,1,shape] SPD
+        P: [class,shape] SPD matrices
+        A: [class,shape] symmetric matrices
+        where shape = [n,n] or [c,n,n]
         """
         Chol_of_S = th.linalg.cholesky(S)
         Chol_of_P = th.linalg.cholesky(P)
 
-        item1_diag_vec = (1/(2*self.power)) * self.diag_function(Chol_of_S,mode='pow',power=self.power) - self.diag_function(Chol_of_P,mode='pow',power=self.power) # K^theta-L^\theta
-        tril_item1 = Chol_of_S.tril(-1) - Chol_of_P.tril(-1) + th.diag_embed(item1_diag_vec)
+        # Off-diagonal contribution
+        off_diff = Chol_of_S.tril(-1) - Chol_of_P.tril(-1)
+        off_ip = inner_product(off_diff, A.tril(-1))
 
-        X_new = inner_product(tril_item1+th.diag_embed(item1_diag_vec), A.tril())
+        # Diagonal contribution: inner product first, then scaled by power
+        diag_pow_diff = self.diag_function(Chol_of_S, mode='pow', power=self.power) - self.diag_function(Chol_of_P, mode='pow', power=self.power)  # K^theta-L^theta
+        diag_A = th.diagonal(A, dim1=-2, dim2=-1)
+        diag_ip = (diag_pow_diff * diag_A).sum(dim=-1)
+
+        X_new = off_ip + (1 / (2 * self.power)) * diag_ip
 
         return X_new
 
@@ -241,19 +248,25 @@ class SPDBuresWassersteinCholeskyMetric(SPDMatrices):
         S: [...,n,n] SPD
         P: [class,n,n] SPD matrices
         A: [class,n,n] symmetric matrices
-        M: None for standard BWM, and \in D^+_{n} for GBWM
+        M: None for standard CBWM, and \in D^+_{n} for CGBWM
         """
         Chol_of_S = th.linalg.cholesky(S)
         Chol_of_P = th.linalg.cholesky(P)
 
-        item1_diag_vec = (1/(4*self.power)) * self.diag_function(Chol_of_S,mode='pow',power=self.power/2) - self.diag_function(Chol_of_P,mode='pow',power=self.power/2) # K^theta-L^\theta
+         # Off-diagonal contribution
+        off_diff = Chol_of_S.tril(-1) - Chol_of_P.tril(-1)
+        off_ip = inner_product(off_diff, A.tril(-1))
+
+        # Diagonal contribution: inner product first, then scaled by power
+        diag_pow_diff = self.diag_function(Chol_of_S,mode='pow',power=self.power/2) - self.diag_function(Chol_of_P,mode='pow',power=self.power/2) # K^theta-L^\theta
         if M == None:
             pass
         else:
-            item1_diag_vec = item1_diag_vec.div(M)
+            diag_pow_diff = diag_pow_diff.div(M)
 
-        tril_item1 = Chol_of_S.tril(-1) - Chol_of_P.tril(-1) + th.diag_embed(item1_diag_vec)
+        diag_A = th.diagonal(A, dim1=-2, dim2=-1)
+        diag_ip = (diag_pow_diff * diag_A).sum(dim=-1)
 
-        X_new = inner_product(tril_item1+th.diag_embed(item1_diag_vec), A.tril())
+        X_new = off_ip + (1 / (4 * self.power)) * diag_ip
 
         return X_new
