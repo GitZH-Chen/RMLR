@@ -27,7 +27,7 @@ And our previous work on the flat SPD MLR, ALEM, and product Cholesky metrics (P
 ```
 ```bib
 @article{chen2024adaptive,
-  title={Adaptive Log-Euclidean metrics for {SPD} matrix learning},
+  title={Adaptive {Log-Euclidean} metrics for {SPD} matrix learning},
   author={Chen, Ziheng and Song, Yue and Xu, Tianyang and Huang, Zhiwu and Wu, Xiao-Jun and Sebe, Nicu},
   journal={IEEE Transactions on Image Processing},
   year={2024}
