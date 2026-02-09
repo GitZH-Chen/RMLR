@@ -34,11 +34,12 @@ And our previous work on the flat SPD MLR, ALEM, and product Cholesky metrics (P
 }
 ```
 ```bib
-@article{chen2024product,
-  title={Product geometries on {Cholesky} manifolds with applications to {SPD} manifolds},
-  author={Chen, Ziheng and Song, Yue and Wu, Xiao-Jun and Sebe, Nicu},
-  journal={arXiv preprint arXiv:2407.02607},
-  year={2024}
+@inproceedings{chen2026fast,
+    title={Fast and Stable {Riemannian} Metrics on {SPD} Manifolds via {Cholesky} Product Geometry},
+    author={Ziheng Chen and Yue Song and Xiao-Jun Wu and Nicu Sebe},
+    booktitle={The Fourteenth International Conference on Learning Representations},
+    year={2026},
+    url={https://openreview.net/forum?id=5S8ruWKe8l}
 }
 ```
 
