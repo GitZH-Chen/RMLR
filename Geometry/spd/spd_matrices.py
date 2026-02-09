@@ -248,7 +248,7 @@ class SPDBuresWassersteinCholeskyMetric(SPDMatrices):
         S: [...,n,n] SPD
         P: [class,n,n] SPD matrices
         A: [class,n,n] symmetric matrices
-        M: None for standard CBWM, and \in D^+_{n} for CGBWM
+        M: None for standard BWCM, and \in D^+_{n} for generalized BWCM
         """
         Chol_of_S = th.linalg.cholesky(S)
         Chol_of_P = th.linalg.cholesky(P)
